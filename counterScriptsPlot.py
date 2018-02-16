@@ -1,6 +1,5 @@
-import os
-from dataAnalytics.counterScripts import PlotingGraph
-from dataAnalytics.counterScripts import PrepareDataForPlotting
+import PlotingGraph
+import PrepareDataForPlotting
 # path = "C:\Users\akshdesh.ORADEV\Documents\books\python\WorkingProjects\CoutersProject\Counters_ak_2nodeTest3_1000
 # .09_32_37_18-Oct"
 
@@ -30,8 +29,9 @@ def main():
     readCouterFiles.writeDataTocsvFile(fullMemoryDetails)
 
     plotingdifferentGraph = PlotingGraph.PlotingGraph()
-    #plotingdifferentGraph.matlibplot(fullMemoryDetails)
-    plotingdifferentGraph.panda_plot(r"C:\Users\akshdesh.ORADEV\PycharmProjects\dataAnalytics\dataFile.csv", fullMemoryDetails)
+    plotingdifferentGraph.matlibplot(fullMemoryDetails)
+    #plotingdifferentGraph.panda_plot(r"C:\Users\akshdesh.ORADEV\PycharmProjects\dataAnalytics\dataFile.csv",
+    # fullMemoryDetails)
 
 
 
