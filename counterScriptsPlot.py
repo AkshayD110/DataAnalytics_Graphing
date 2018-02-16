@@ -1,17 +1,13 @@
-import os
-from dataAnalytics.counterScripts import PlotingGraph
-from dataAnalytics.counterScripts import PrepareDataForPlotting
+import PlotingGraph
+import PrepareDataForPlotting
 # path = "C:\Users\akshdesh.ORADEV\Documents\books\python\WorkingProjects\CoutersProject\Counters_ak_2nodeTest3_1000
 # .09_32_37_18-Oct"
 
 def main():
     fullMemoryDetails = {}
     readCouterFiles = PrepareDataForPlotting.PrepareDataForPlotting(r"C:\Users\akshdesh.ORADEV\Documents\books\python\WorkingProjects\CoutersProject\Counters_ak_2nodeTest3_1000.09_32_37_18-Oct")
-    memoryResults = readCouterFiles.readTheProcessIDs(
-        r"C:\Users\akshdesh.ORADEV\Documents\books\python\WorkingProjects\CoutersProject\Counters_ak_2nodeTest3_1000.09_32_37_18-Oct")
-    machineMemory = readCouterFiles.machineMemory(
-        r"C:\Users\akshdesh.ORADEV\Documents\books\python\WorkingProjects\CoutersProject\Counters_ak_2nodeTest3_1000"
-        r".09_32_37_18-Oct")
+    memoryResults = readCouterFiles.readTheProcessIDs()
+    machineMemory = readCouterFiles.machineMemory()
 
     #print(obips_rss, '\n', obips_vsz, '\n', obis_rss, '\n', obis_vsz, '\n', obijh_rss, '\n', obijh_vsz, '\n',
      #     biresults_rss,
@@ -30,8 +26,9 @@ def main():
     readCouterFiles.writeDataTocsvFile(fullMemoryDetails)
 
     plotingdifferentGraph = PlotingGraph.PlotingGraph()
-    #plotingdifferentGraph.matlibplot(fullMemoryDetails)
-    plotingdifferentGraph.panda_plot(r"C:\Users\akshdesh.ORADEV\PycharmProjects\dataAnalytics\dataFile.csv", fullMemoryDetails)
+    plotingdifferentGraph.matlibplot(fullMemoryDetails)
+    #plotingdifferentGraph.panda_plot(r"C:\Users\akshdesh.ORADEV\PycharmProjects\dataAnalytics\dataFile.csv",
+    # fullMemoryDetails)
 
 
 

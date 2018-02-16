@@ -14,12 +14,12 @@ class PrepareDataForPlotting(object):
     def path(self, path):
         self._path = path
 
-    def readTheProcessIDs(self, path):  # if you miss out on the "self" part you will get this error
+    def readTheProcessIDs(self):  # if you miss out on the "self" part you will get this error
         # :https://stackoverflow.com/questions/23944657/typeerror-method-takes-1-positional-argument-but-2-were-given
         allProcessesList = ['OBIPS', 'OBIS', 'OBIJH', 'bi_server1']
         allProcessesDict = {}
         processMemRestults = []
-        newPath = os.path.join(path, 'processIDs')
+        newPath = os.path.join(self._path, 'processIDs')
         file = open(newPath)
         allLines = file.readlines()
         for lines in allLines:
@@ -27,14 +27,14 @@ class PrepareDataForPlotting(object):
             allProcessesDict[allWords[0]] = allWords[1]
             # print(allProcessesDict)
         for processes in allProcessesList:
-            list1, list2 = self.memoryDetails(path, allProcessesDict[processes], processes)
+            list1, list2 = self.memoryDetails(allProcessesDict[processes], processes)
             processMemRestults.append(list1)  # because it is easy to take the results of all the processes in a single
             #  list
             processMemRestults.append(list2)
         return processMemRestults
 
-    def memoryDetails(self, path, processID, whichProcess):
-        memFilePath = os.path.join(path, 'mem_usage_' + processID + '.log')
+    def memoryDetails(self, processID, whichProcess):
+        memFilePath = os.path.join(self._path, 'mem_usage_' + processID + '.log')
         file = open(memFilePath)
         allLines = file.readlines()
         process_rss = []
@@ -46,10 +46,10 @@ class PrepareDataForPlotting(object):
         return process_rss, process_vsz
 
 
-    def machineMemory(self, path):
+    def machineMemory(self):
         machineCPUValue = []
         machineCPUValuesinMB = []
-        machineCPUPath = os.path.join(path, 'free_memory_stats.log')
+        machineCPUPath = os.path.join(self._path, 'free_memory_stats.log')
         file = open(machineCPUPath)
         allLines = file.readlines()
         for lines in allLines:
