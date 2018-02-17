@@ -10,6 +10,8 @@ class PrepareDataForPlotting:
     def __repr__(self):
         return f'{self.__class__.__name__} Class - Preparing data from {self._path}'
 
+    'if there are mutiple instance variables, then it is ok to set them all separately. Link below.'
+    'https://stackoverflow.com/questions/21918561/python-multiple-property-statements-in-class-definition'
     @property
     def path(self):
         return self._path
