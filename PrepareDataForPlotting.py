@@ -1,10 +1,14 @@
 import os
 
-class PrepareDataForPlotting(object):
+class PrepareDataForPlotting:
     """below method will fetch all the process id's"""
 
     def __init__(self, path):
         self._path = path
+
+    'details on __repr__ and __str__ implementation in DanBrader tutorial'
+    def __repr__(self):
+        return f'{self.__class__.__name__} Class - Preparing data from {self._path}'
 
     @property
     def path(self):
