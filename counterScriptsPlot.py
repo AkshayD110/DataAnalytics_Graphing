@@ -9,10 +9,6 @@ def main():
     memoryResults = readCouterFiles.readTheProcessIDs()
     machineMemory = readCouterFiles.machineMemory()
 
-    #print(obips_rss, '\n', obips_vsz, '\n', obis_rss, '\n', obis_vsz, '\n', obijh_rss, '\n', obijh_vsz, '\n',
-     #     biresults_rss,
-      #    '\n', biresults_vsz, '\n', machineMemory)
-
     fullMemoryDetails['obips_rss'] = memoryResults[0]
     fullMemoryDetails['obips_vsz'] = memoryResults[1]
     fullMemoryDetails['obis_rss'] = memoryResults[2]
