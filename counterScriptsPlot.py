@@ -23,6 +23,7 @@ def main():
 
     plotingdifferentGraph = PlotingGraph.PlotingGraph()
     plotingdifferentGraph.matlibplot(fullMemoryDetails)
+    #plotingdifferentGraph.pygal_ploting(fullMemoryDetails)
     #plotingdifferentGraph.panda_plot(r"C:\Users\akshdesh.ORADEV\PycharmProjects\dataAnalytics\dataFile.csv",
     # fullMemoryDetails)
 
